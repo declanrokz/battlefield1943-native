@@ -1,0 +1,247 @@
+{
+  "updated": "2026-10-12",
+  "coverage": {
+    "known_entry_points": 46421,
+    "known_entries_with_decompiled_text": 46303,
+    "analyzed_functions": 46662,
+    "nonempty_decompilations": 46544,
+    "empty_decompilations": 6,
+    "functions_with_decompiler_warnings": 2570
+  },
+  "functions": [
+    {
+      "address": "000235D8",
+      "name": "Controller input reader",
+      "system": "camera",
+      "status": "Delivered CROSS reaches normalized input; camera consumption unverified",
+      "line": 22918,
+      "callees": [
+        "002A85A0",
+        "00841A50",
+        "00FC4884",
+        "00FC4904"
+      ]
+    },
+    {
+      "address": "000258E8",
+      "name": "Level-string copy helper",
+      "system": "match",
+      "status": "Used to copy the event level string; allocation/ownership still needs review",
+      "line": 25448,
+      "callees": [
+        "00010E18",
+        "00F6E720"
+      ]
+    },
+    {
+      "address": "000328A8",
+      "name": "Session transition queue writer",
+      "system": "match",
+      "status": "Decision path reconstructed read-only; duplicate/current-state suppression and block boundary identified. 16,384 translated-routine comparisons pass for decision path; map growth untested; not integrated",
+      "line": 39997,
+      "callees": [
+        "00031A10",
+        "002A2DF8"
+      ]
+    },
+    {
+      "address": "00032AC0",
+      "name": "Session state entry handler",
+      "system": "match",
+      "status": "State-dependent handler identified; semantic state names and side effects remain under review",
+      "line": 40157,
+      "callees": [
+        "00010E18",
+        "00018B40",
+        "00019150",
+        "0001D310",
+        "00023B20",
+        "00024CF8",
+        "000258E8",
+        "000328A8",
+        "002A2DF8",
+        "002A2E68",
+        "002A85B8",
+        "002A86B0",
+        "002D9520",
+        "002DAFA0",
+        "0071FA00",
+        "0071FA58",
+        "00838738",
+        "0083DE98",
+        "00841A50",
+        "00847DF8",
+        "00F6E164",
+        "00F7B908",
+        "00FC5224",
+        "00FC5244"
+      ]
+    },
+    {
+      "address": "000355F8",
+      "name": "Local-session event dispatcher",
+      "system": "match",
+      "status": "Mapped from instructions; reference decompile has an unresolved switch",
+      "line": 43157,
+      "callees": [
+        "00023D50",
+        "000258E8",
+        "000328A8",
+        "000352C0",
+        "00713F08",
+        "0073D558",
+        "0073D708",
+        "0074F100",
+        "00841A50",
+        "00F6E164"
+      ]
+    },
+    {
+      "address": "00103560",
+      "name": "UI game-command dispatch",
+      "system": "spawn",
+      "status": "Observed enterInGame; doSpawn not observed in recent traces",
+      "line": 277597,
+      "callees": []
+    },
+    {
+      "address": "005686D0",
+      "name": "UI invocation boundary",
+      "system": "spawn",
+      "status": "Read-only hook observes original HUD events",
+      "line": 378975,
+      "callees": [
+        "002A2DF8",
+        "002A85B8",
+        "005E31F0",
+        "005FE668",
+        "00F6E720",
+        "00F72598"
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "event": 16,
+      "target": "0003570C"
+    },
+    {
+      "event": 17,
+      "target": "000358A8"
+    },
+    {
+      "event": 18,
+      "target": "00035890"
+    },
+    {
+      "event": 19,
+      "target": "0003583C"
+    },
+    {
+      "event": 20,
+      "target": "00035674"
+    },
+    {
+      "event": 21,
+      "target": "00035830"
+    },
+    {
+      "event": 22,
+      "target": "000356E8"
+    },
+    {
+      "event": 23,
+      "target": "000357EC"
+    },
+    {
+      "event": 24,
+      "target": "000357A8"
+    }
+  ],
+  "systems": [
+    {
+      "name": "Native build and startup",
+      "status": "Verified",
+      "detail": "Windows executable builds and executes translated game code."
+    },
+    {
+      "name": "Offline local session",
+      "status": "Partial",
+      "detail": "Original event, loopback traffic and map-loading flow observed; startup can still stall."
+    },
+    {
+      "name": "Spawn and tutorial",
+      "status": "Partial",
+      "detail": "Class selection and LOOK UP tutorial HUD captured; controllable player not confirmed."
+    },
+    {
+      "name": "Input and camera",
+      "status": "Partial",
+      "detail": "Buttons reach original reader and menu. Camera motion remains unverified."
+    },
+    {
+      "name": "Graphics",
+      "status": "Partial",
+      "detail": "RTX 5090 renders menus/HUD. World and weapon remain invisible."
+    },
+    {
+      "name": "Movement, weapons and collision",
+      "status": "Unverified",
+      "detail": "Require a controllable player and visible scene."
+    },
+    {
+      "name": "Offline match rules",
+      "status": "Unverified",
+      "detail": "Scoring, objectives, respawn and match completion need mapping and tests."
+    },
+    {
+      "name": "Bots and AI",
+      "status": "Planned",
+      "detail": "Investigate existing AI first; new behavior/navigation may be needed."
+    },
+    {
+      "name": "Resolution and frame rate",
+      "status": "Partial",
+      "detail": "Native rendering exists, but late game execution is about 0.39 FPS in one test."
+    }
+  ],
+  "milestones": [
+    [
+      "Native program builds",
+      true
+    ],
+    [
+      "Menus render on RTX 5090",
+      true
+    ],
+    [
+      "Offline map-loading path reached",
+      true
+    ],
+    [
+      "Tutorial LOOK UP prompt captured",
+      true
+    ],
+    [
+      "Player and camera control verified",
+      false
+    ],
+    [
+      "World and weapon visible",
+      false
+    ],
+    [
+      "Movement / firing / collision verified",
+      false
+    ],
+    [
+      "Offline match completes",
+      false
+    ],
+    [
+      "Bots implemented and validated",
+      false
+    ]
+  ],
+  "next": "Reconstruct the local-session event fields and transition flow; identify the player/camera consumer; trace submitted versus replayed world draws."
+}
